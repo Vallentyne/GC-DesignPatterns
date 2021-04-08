@@ -14,7 +14,7 @@ Not to describe what this resource does, but it does have some unique networking
 
 The most common desire is to have everything contained inside a network, and control everything.  API Management can be deployed to a VNET in the "internal" mode, where most of the associated assets are contained in a VNET.
 
-![APIM VNET configuration](./apim-vnet.png)
+![APIM VNET configuration](./APIM-VNET.png)
 
 
 
