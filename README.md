@@ -16,7 +16,9 @@ The most common desire is to have everything contained inside a network, and con
 
 ![APIM VNET configuration](./APIM-VNET.png)
 
+If everything is good, the status should look green.
 
+![APIM VNET status](./APIM-NETSTATUS.png)
 
 
 ### Azure Data Bricks
