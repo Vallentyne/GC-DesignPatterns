@@ -1,4 +1,4 @@
-# GC-DesignPatterns
+# GC Design Patterns
 
 Most GC customers will be able to use patterns that are well described and documented in other areas, such as the Azure Architecture center.
 
