@@ -20,6 +20,8 @@ If everything is good, the status should look green.
 
 ![APIM VNET status](./APIM-NETSTATUS.png)
 
+For more detail, check out the [Readme](https://github.com/Vallentyne/GC-DesignPatterns/blob/main/APIM/README.md).
+
 
 ### Azure Data Bricks
 
