@@ -13,17 +13,42 @@ For the "internal only" VNet model which is the model that we expect most securi
 
 The requirements for this kind of deployment include allowing some network traffic to flow in ways that does not align with the hub and spoke model.  The specifics are well covered in the [documentation](https://docs.microsoft.com/en-us/azure/api-management/api-management-using-with-internal-vnet#--routing), but specifically:
 
-- For the subnet that you are installing APIM to, enable service endpoints to:
+## Subnet Service Endpoints
+
+For the subnet that you are installing APIM to, enable service endpoints to:
 
     - Azure SQL
     - Azure Storage
     - Azure Eventhub
     - Azure Servicebus
 
-- The API subnet route table needs to have a direct route to the control IPs.  This is the traffic pattern that runs against the usual hub and spoke flows.  The APIM service needs a direct path to the control plane addresses, as shown below.  The actual addresses used here will vary, use the regional addresses as necessary, [found here](https://docs.microsoft.com/en-us/azure/api-management/api-management-using-with-vnet#--control-plane-ip-addresses).
+This will reduce the other routing and firewall rule requirements, and keep this traffic to the Azure backbone.
+
+## Subnet Route Table
+
+The API subnet route table needs to have a direct route to the API service control IPs.  **This is the traffic pattern that runs against the usual hub and spoke flows.**  The APIM service needs a direct path to the control plane addresses, as shown below.  The actual addresses used here will vary, use the regional addresses as necessary, [found here](https://docs.microsoft.com/en-us/azure/api-management/api-management-using-with-vnet#--control-plane-ip-addresses).
 
 ![APIM Route Table](./routetable.png)
 
+## Firewall Rules
 
+Since some of the traffic does respect the hub and spoke networking, we need to allow the necessary flows for monitoring, and other related services.  The following rules were enabled for outbound flows from the API subnet, and are listed here for clarity.
+
+### Application Rule
+
+
+![Firewall App Rule](./FW-apprules.png)
+
+The target FQDNs in this list are:
+- *.windows.net
+- *.azure.com
+- *.microsoft.com
+- *.visualstudio.com
+
+### Network Rules
+
+![Network Rule for Monitoring](./FW-netrules.png)
+
+![Network Rule for SMTP](./FW-netrules2.png)
 
 
