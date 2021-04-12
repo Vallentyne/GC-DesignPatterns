@@ -1,5 +1,12 @@
 # APIM and Networks
 
+## Design
+
+Overall, this is a simple environment.  This is a brief overview of the main components.
+
+![APIM Design](./APIM-network.png)
+
+
 ## Attribution
 Much of this information is from the product doc pages, but a lot of the detail comes from the following pages, excellent information on this topic.
 
